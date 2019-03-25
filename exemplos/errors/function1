@@ -1,0 +1,15 @@
+function void init();
+function void main();
+
+function void func() {
+    give; 
+}
+
+function void init() {
+    num a = func();
+    Sprite s = create List();
+}
+function num main() {
+    give 0;
+}
+

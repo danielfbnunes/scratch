@@ -1,0 +1,5 @@
+function num main() {
+
+    Sprite s = create Sprite("examples/complete/error1.sprite");
+    give 0;
+}

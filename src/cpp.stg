@@ -1,0 +1,403 @@
+ // dictionaries: allows simple translations
+
+booleanValue ::= [
+   "true":"true",
+   "false":"false",
+   default:"null"
+]
+
+logicValue ::= [
+   "and": "&&",
+   "or" : "||",
+   default : "null"
+]
+
+typeValue ::= [
+   "int":"int",
+   "real":"double",
+   "number" : "double",
+   "string" : "string",
+   "boolean":"bool",
+   "Sprite" : "ScratchSprite",
+   "Window" : "window",
+   "List" : "vector<ScratchSprite>",
+   "void" : "void",
+   default:"null"
+]
+
+typeFormat ::= [
+   "int":"",
+   "real":"",
+   "num":"",
+   "string" : "",
+   "boolean":"",
+   "sprite" : "",
+   "window" : "",
+   default:"null"
+]
+
+operators ::= [
+   "*":"*",
+   "/":"/",
+   "+":"+",
+   "-":"-",
+   "==":"==",
+   "!=":"!=",
+   "<" : "<",
+   ">":">",
+   "<=":"<=",
+   ">=":">=",
+   default:"null"
+]
+
+powerTypeCast ::= [
+   "int":"(int)",
+   "real":"",
+   "num":"",
+   "string" : "",
+   "sprite" : "(Sprite)",
+   "window" : "(Window)",
+   default:"null"
+]
+
+keyValues ::= [
+"key->a" : "A",
+"key->b" : "B",
+"key->c" : "C",
+"key->d" : "D",
+"key->e" : "E",
+"key->f" : "F",
+"key->g" : "G",
+"key->h" : "H",
+"key->i" : "I",
+"key->j" : "J",
+"key->k" : "K",
+"key->l" : "L",
+"key->m" : "M",
+"key->n" : "N",
+"key->o" : "O",
+"key->p" : "P",
+"key->q" : "Q",
+"key->r" : "R",
+"key->s" : "S",
+"key->t" : "T",
+"key->u" : "U",
+"key->v" : "V",
+"key->w" : "W",
+"key->x" : "X",
+"key->y" : "Y",
+"key->z" : "Z",
+"key->0" : "Num0",
+"key->1" : "Num1",
+"key->2" : "Num2",
+"key->3" : "Num3",
+"key->4" : "Num4",
+"key->5" : "Num5",
+"key->6" : "Num6",
+"key->7" : "Num7",
+"key->8" : "Num8",
+"key->9" : "Num9",
+"key->space" : "Space",
+"key->left arrow"  : "Left",
+"key->right arrow" : "Right",
+"key->up arrow"    : "Up",
+"key->down arrow"  : "Down",
+default : "Unknown"
+]
+
+typeWindow ::= [
+   "close": "close",
+   "getHeight" : "getPosition",
+   "getWidth" : "getPosition",
+   "size" : "size",
+   "setTitle" : "setTitle",
+   default : "null"
+]
+
+typeSprite ::= [
+   "move": "move",
+   "goTo" : "goTo",
+   "rotate" : "rotate",
+   "setSize" : "setSize",
+   "touching" : "touching",
+   "setGravity" : "setGravity",
+   default : "null"
+]
+
+typeList ::= [
+   "insert": "push_back",
+   "remove" : "erase",
+   "get" : "at",
+   default : "null"
+]
+
+//templates :
+
+
+module(name,stat,header,sprite, list, initStats) ::= 
+<<
+#include "<name>.h"
+#include \<string>
+#include \<stdio.h>
+#include \<iostream>
+#include \<math.h>
+#include \<time.h>
+#include \<X11/Xlib.h>
+#include \<vector>
+#include "ScratchSprite.cpp"
+using namespace std;
+
+/* Function Headers */
+<headers(header)>
+
+
+<stats(stat)>
+
+void <name>::run() {
+    sf::Clock clock;
+    sf::Time timeSinceLastUpdate = sf::Time::Zero;
+    sf::Time TimePerFrame = sf::seconds(1.f / 60.f);
+    while (window.isOpen()) {
+        processEvents();
+        timeSinceLastUpdate += clock.restart();
+        while (timeSinceLastUpdate > TimePerFrame) {
+            timeSinceLastUpdate -= TimePerFrame;
+            processEvents();
+            
+        }
+        update(TimePerFrame);
+    }
+}
+
+void <name>::processEvents() {
+    
+    sf::Event event;
+    while (window.pollEvent(event)) {
+        if (event.type == sf::Event::Closed)
+            window.close();
+    }
+}
+
+ <name>::~ <name>() {}
+>>
+
+
+
+
+gameHeaderModule(name) ::= 
+<<
+#include \<SFML/Graphics.hpp>
+
+class  <name> 
+{
+    public:
+		<name>();
+		~<name>();
+        void run();
+
+    private:
+        void processEvents();
+        void update(sf::Time dt);
+        void render();
+	private:
+        sf::RenderWindow window;
+};
+>>
+
+
+
+mainModule(name) ::=
+<<
+#include \<SFML/Graphics.hpp>
+#include "<name>.cpp"
+
+int main() {
+    <name> game;
+    game.run();
+    return 0;
+}
+>>
+
+
+initFunc(name,stat) ::= <<
+
+<name>::<name>() : window(sf::VideoMode(100, 100), "Scratch Application") { 
+	<stats(stat)>
+}
+
+>>
+mainFunc(stat) ::= <<
+void <name>::update(sf::Time dt) {
+
+   	/* código da main */
+	<stats(stat)>
+	
+	   window.clear();
+    
+    //Draw Sprites
+    <drawSprites(sprite)>
+    
+    //Draw Sprites From Lists
+    <drawSpritesFromLists(list)>
+
+
+	
+    window.display();
+	
+	
+    // bird gravity
+    
+    // move bird
+    //bird.move(bird.velocity * dt.asSeconds());
+}
+
+>>
+
+
+createList(name) ::= "vector\<ScratchSprite> <name>; "
+
+insertList(name, elem,spriteInstanciation) ::= "<name>.push_back(<elem>);"
+
+
+
+removeListPosition(name, pos) ::= "<name>.erase(<name>.begin()+<pos>);"
+
+getListPosition(name, pos) ::= "<name>.at(<pos>);"
+
+
+drawSprites(drawSprite) ::= 
+<<
+<if(drawSprite)><drawSprite; separator="\n"><endif>
+>>
+
+drawSprite(name) ::="window.draw(<name>);"
+
+
+
+drawSpritesFromLists(drawSprite) ::= 
+<<
+<if(drawSprite)><drawSprite; separator="\n"><endif>
+>>
+
+drawSpritesFromList(name) ::=
+<<
+for (unsigned int i = 0; i \< <name>.size(); i++)
+	window.draw(<name>.at(i));
+>>
+
+
+headers(header) ::= 
+<<
+<if(header)><header; separator="\n"><endif>
+>>
+
+headerDef( funcName, type,args) ::="<typeValue.(type)> <funcName> (<if(args)> <args> <endif>);"
+
+
+stats(stat) ::=
+<<
+<if(stat)><stat; separator="\n"><endif>
+>>
+
+elifs(elif) ::=
+<<
+<if(elif)><elif; separator="\n"><endif>
+>>
+
+args(expr) ::=
+<<
+<if(expr)><expr; separator=", "><endif>
+>>
+
+assign(stat,var,value) ::= << <stats(stat)><var> = <value>;>>
+
+init(value) ::= "<if(value)><value><endif>"
+
+decl(type,var,value) ::= "<typeValue.(type)> <var><if(value)> = <value><endif>;"
+
+define(type,var) ::= "<typeValue.(type)> <var>"
+
+binaryExpression (e1, op, e2 ) ::= "<e1> <op> <e2>"
+
+literalBoolean(value) ::= "<booleanValue.(value)>"
+
+literalLogic(value) ::= "<logicValue.(value)>"
+
+parent(value) ::= "( <if(value)><value><endif> )"
+
+pow(base, exp) ::= "pow ( <base> , <exp> )"
+
+conditional(var,stat_true,stat_false,elseIfStat) ::= 
+<<
+if (<var>) 
+{
+	<stat_true>
+}
+<if(elseIfStat)>
+<elifs(elseIfStat)>
+<endif>
+<if(stat_false)>
+else 
+{
+	<stat_false>
+}<endif>
+>>
+
+elif(expression,stat_true) ::= 
+<<
+else if (<expression>) 
+{
+	<stat_true>
+}
+>>
+
+
+while(var, stat, spriteInstanciation) ::= 
+<<
+<stats(spriteInstanciation)>
+while (<var>) 
+{
+	<stat>
+}
+>>
+
+for(expr1, expr2, expr3, stat,spriteInstanciation) ::= 
+<<
+<stats(spriteInstanciation)>
+for (<expr1>; <expr2> ; <expr3>) 
+{
+	<stat>
+}
+>>
+
+funcInvoc ( funcName, args) ::=
+"<funcName>(<if(args)> <args> <endif>);"
+
+
+funcDef( funcName, type,args, stat) ::=
+<<
+<typeValue.(type)> <funcName> (<if(args)> <args> <endif>)
+{
+	<stats(stat)>
+}
+>>
+
+
+classInst(type,args) ::= "new <typeValue.(type)>( <if(args)><args><endif> )"
+
+defaultMethodInvocation(id1, id2, args) ::= "<id1>.<id2>(<if(args)><args><endif>);"
+
+//windowMethodInvocation(id1, id2, args,extra) ::= "<id1>.<typeWindow.(id2)>(<if(args)><args><endif>)<if(extra)>.<extra><endif>;"
+
+spriteMethodInvocation(id1, id2, args) ::= "<id1>.<typeSprite.(id2)>(<if(args)><args><endif>);"
+
+listMethodInvocation(id1, id2, args) ::= "<id1>.<typeList.(id2)>(<if(args)><args><endif>);"
+
+staticMethodInvocation(type, id, args, extra) ::= "<typeValue.(type)>.<typeWindow.(id)>(<if(args)><args><endif>)<if(extra)>.<extra><endif>;"
+
+keyPressed (key) ::= "sf::Keyboard::isKeyPressed(sf::Keyboard::<keyValues.(key)>)"
+
+returnExpr(expression) ::= "give <if(expression)><expression><endif> ;"
+
+random(vMin, vMax) ::= "(rand() % (<vMin>)) + <vMax>"
+

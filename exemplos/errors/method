@@ -1,0 +1,11 @@
+Sprite a = create Sprite();
+List b = create List(1);
+
+a.move(1);
+num x, y;
+x = 1;
+y = 4;
+a.goto(x, y);
+a.addCostume(a);
+a.rotate(1000);
+a.size(100, 100);

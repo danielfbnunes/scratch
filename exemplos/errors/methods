@@ -1,0 +1,37 @@
+num x = 1;
+num y = 1.02;
+
+function num main() {
+
+    // Sprite methods.
+    Sprite s1 = create Sprite("sprite1.sprite");
+    s1.move(1, 1);
+    s1.goto(1, 1);
+    num x = s1.getX();
+    num y = s1.getY();
+    s1.changeCostume("sprite2.sprite");
+    s1.rotate(90.5);
+    s1.setSize(12, 1);
+    s1.getWidth();
+    s1.getHeight();
+    Sprite s2 = create Sprite("sprite1.sprite");
+    boolean b = s1.touching(s2);
+    s1.setGravity(9.8);
+
+    // Window methods
+    Window.close();
+    num a = Window.getHeight();
+    a = Window.getWidth();
+    Window.setSize(a, a);
+    Window.setTitle("Título.");
+
+    //List methods
+    List l = create List();
+    l.insert(s);
+    l.insert(0, s);
+    l.remove(s);
+    l.remove(0);
+    Sprite s3 = l.get(0);
+
+    give 0;
+}

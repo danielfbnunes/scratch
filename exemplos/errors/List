@@ -1,0 +1,9 @@
+function num main() {
+    
+    List l;
+    l = create List();
+    List g = create List();
+
+    give 0;
+
+}

@@ -1,0 +1,72 @@
+function num main()
+{
+	
+
+	Sprite sprite1 = create Sprite("sprite1.sprite");
+	Sprite sprite2;
+	sprite2 =  create Sprite("sprite2.sprite");
+	
+	List l;
+	l.insert(sprite1);
+	l.insert(sprite2);
+	l.get(0);
+
+	//Assign
+	num var2 = 3;
+	num var3 = 40;
+
+	//Assign to Var
+	num var4=var2;
+
+	//Sum-Dif
+
+	num a = -2 ;
+	num z =3 ;
+	num x ; 
+	num c  = 5-2;
+	num  d = 1 + z + c - a;
+	x = c  + d;
+
+	//Mult-Div
+	c  = 5*2;
+	d = 1 * z + c / a;
+	d =  1 * z + c / a;
+	x = c  * d;
+	boolean b2 = d == x;
+
+	//Parentesis
+	d =  1 * (z + c) / a;
+	
+	
+
+	//And e or
+	boolean b3 = true and false ;
+	b3 = true or false ;
+
+	//Not
+	b3 = not b3;
+
+	//Pow
+	num var10 = 2 ^ 3;
+
+	//Condicional
+
+	num cond1;
+	num cond2;
+	
+
+
+	sprite2.move(2,3);
+
+	num i= 1;
+	for (Sprite sprite3 = create Sprite ("sprite2.sprite"); i < 5 ; i = i+1)
+	{
+			
+	}
+
+	
+	if (is key->up arrow pressed ?) {sprite1.move(1,2);}
+	
+	give 0;
+	
+}

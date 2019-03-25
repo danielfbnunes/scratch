@@ -1,0 +1,31 @@
+num a, b, c;
+a = 0;
+b = 3;
+
+/** 
+ *  Não é possível definir expressões 
+ *  condicionais fora de funções.
+ */
+if (a < b and b != 0 or a == b) {
+    c = 1;  
+}
+else {
+    c = 2;
+}
+
+function List func1() {
+    Sprite s = create Sprite("arg1", n);
+    s.method();
+
+    while (true) {
+        num n;
+        for ( n = 0; n < 3; n = n+1) {
+            //Sprite s2 = create Sprite();
+        }
+    }
+    give create List();
+}
+
+function void main() {
+
+}

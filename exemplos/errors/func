@@ -1,0 +1,21 @@
+num a = -1;
+
+function num main() {
+    num a = 0;
+    while (true){
+        num a = 1;
+        for (;;) {
+            num a = 3;
+            while (false) {
+                num a = 4;
+                num a = 5;
+            }
+            num a = 6;
+        }
+        num a = 7;
+    }
+    num a = 8;
+    give 0;
+}
+
+num a = 9;

@@ -1,0 +1,43 @@
+num a, b, c;
+a =  b;
+
+function Sprite nothing() {
+
+    give create Sprite ("string");
+}
+
+function void voidFunction() {
+
+    if (true) {
+        give;
+    } elsif (1) {} 
+    elsif (false) {} 
+    elsif (false) {} 
+    elsif (false) {
+        while (true) {
+            if (true) {
+                give;
+            } elsif (1) {} 
+            elsif (false) {} 
+            elsif (false) {} 
+            elsif (false) {
+                while (true) {}
+            } 
+            else {}
+        }
+    } 
+    else {}
+}
+
+function void voidFunction2() {
+    num a = 1;
+    give;
+}
+
+function num main() {
+    b = a;
+    c = 1;
+    c = a;
+    num d = 3;
+    give 0;
+}

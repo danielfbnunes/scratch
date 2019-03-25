@@ -1,0 +1,9 @@
+function num main() {
+    //Sprite s = create Sprite("aaa");
+    if (isKey space pressed ?) {
+        s.move(1);
+    }
+    //Window w = create Window(1, 2, 3);
+    //List l = create List(1);
+    give 0;
+}

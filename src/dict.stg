@@ -1,0 +1,45 @@
+typeValue ::= [
+   "Texture":"ScratchSprite",
+   "Rectangle":"ScratchSprite",
+   "Circle" : "ScratchSprite",
+   "Triangle" : "ScratchSprite",
+   "RegularPolygon":"ScratchSprite",
+   "default" : "void"
+]
+typeProperty ::=[
+    "crop":"setCrop",
+    "source":"setSource",
+    "height":"setHeight",
+    "width":"setWidth",
+    "gravity":"setGravity",
+    "collidable":"setCollidable",
+    "boundingBoxType":"setBoundingBoxType",
+    "radius":"setRadius",
+    "xPosition":"setX",
+    "yPosition":"setY",
+    "nSides":"setNSides",
+    "name":"setName",
+    "default":"null"
+]
+
+args(expr) ::=
+<<
+<if(expr)><expr; separator=", "><endif>
+>>
+
+stats(stat) ::=
+<<
+<if(stat)><stat; separator="\n"><endif>
+>>
+
+valueWrite(value) ::= "<if(value)><value><endif>"
+
+binaryExpression (e1, op, e2 ) ::= "<e1> <op> <e2>"
+
+declaration(type,varName,value) ::= "<typeValue.(type)> <varName><if(value)> = <value><endif>;"
+
+leftSideExpr(type) ::= "<typeValue.(type)>()"
+
+classAtribution(name,property,value) ::= "<name>.<typeProperty.(property)>(<value>);"
+
+parentesis(value) ::= "( <if(value)><value><endif> )"

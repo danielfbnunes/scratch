@@ -1,0 +1,11 @@
+function void f(num n) {
+    give;
+}
+
+function num main() {
+
+    f(num n = 1);
+    while (boolean a = 1 < 1) {
+    }
+    give 0;
+}

@@ -1,0 +1,1 @@
+Sprite sprite2 = create Sprite ("sprite2.sprite");

@@ -1,0 +1,11 @@
+function num main() {
+    f(1, 2, 3);
+    give 0;
+}
+
+f(1, 2, 3);
+
+function void f(num a, num b, num c) {
+    num d = a+b+c; // Todas as variáveis estão definidas. Não pode dar erro.
+    give;
+}

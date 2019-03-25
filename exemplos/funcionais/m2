@@ -1,0 +1,10 @@
+
+Sprite s;
+
+function void init() {
+	s= create Sprite("sprite2.sprite");
+}
+
+function num main() {
+	give 0;
+}

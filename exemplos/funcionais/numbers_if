@@ -1,0 +1,59 @@
+
+//Headers
+function void testfunction ( num v , boolean b);
+
+boolean b3 = false;
+num cond3 = 2;
+
+function num main()
+{
+	num a = 2;
+	num b = 3;
+	num c = 4;
+	num  d = 1 + b + c - a;
+	num x = c  + d;
+    num z = 0;
+
+	
+	boolean b1 = true;
+
+	//Parentesis
+	d =  1 * (z + c) / a;
+	
+
+	//And e or
+	boolean b2 = true and false ;
+	b2 = true or false ;
+
+	//Not
+	b3 = not b3;
+
+	//Pow
+	num e = 2 ^ 3;
+
+	//Condicional
+
+	num cond1;
+	num cond2;
+	
+	if ( 3 == 3) 
+	{ 
+		cond1 = 2;
+		cond2 = 4;
+	}
+
+	if ( cond1 == 3) 
+	{ 
+		cond3 = 2;
+	}
+	elsif( cond1 == 4)
+	{
+		cond3 = 3;
+	}
+	else
+	{
+		cond3=21;
+	}
+    give 0;
+}
+

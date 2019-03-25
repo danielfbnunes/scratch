@@ -1,0 +1,8 @@
+function num main() {
+
+    num a = pickRandom ("aaa" -> 10);
+    if (pickRandom (0->22) < 10) {
+        give 1; 
+    }
+    give 0;
+}

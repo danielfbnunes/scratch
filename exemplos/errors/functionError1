@@ -1,0 +1,18 @@
+num b;
+
+function num f(num a) { 
+    num b; // A referência para esta variável b só existe dentro desta função.
+    give 1;// e não deve entrar em conflito com a variável global b. 
+}
+
+function num g() {
+    num a = b+2; // A referência da variável b é a global.
+    give 0;
+}
+// A main tem de retornar um number
+function str main() {
+    give 1; // Devia retornar um string
+}
+
+
+g();

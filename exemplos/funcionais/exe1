@@ -1,0 +1,148 @@
+
+//Declaration
+
+function void testfunction ( num v , boolean b);
+
+num cond3=2;
+
+function num main()
+{
+	
+	num variavel, var3, var4;
+	Sprite sprite1 = create Sprite("sprite1.sprite");
+
+	boolean b = true;
+	str s1 = "hello" ;
+	
+	List l;
+
+	l.insert(sprite1);
+	l.remove(2);
+	l.get(0);
+
+	//Assign
+	num var2 = 3;
+	var3 = 40;
+
+	//Assign to Var
+	var4=var2;
+
+	//Sum-Dif
+
+	num a = -2 ;
+	num z =3 ;
+	num x ; 
+	num c  = 5-2;
+	num  d = 1 + z + c - a;
+	x = c  + d;
+
+	//Mult-Div
+	c  = 5*2;
+	d = 1 * z + c / a;
+	d =  1 * z + c / a;
+	x = c  * d;
+	boolean b2 = d == x;
+
+	//Parentesis
+	d =  1 * (z + c) / a;
+	
+	
+
+	//And e or
+	boolean b3 = true and false ;
+	b3 = true or false ;
+
+	//Not
+	b3 = not b3;
+
+	//Pow
+	num var10 = 2 ^ 3;
+
+	//Condicional
+
+	num cond1;
+	num cond2;
+	
+
+	
+	if ( 3 == 3) 
+	{ 
+		cond1 = 2;
+		cond2 = 4;
+	}
+
+	if ( cond1 == 3) 
+	{ 
+		cond3 = 2;
+	}
+	elsif( cond1 ==4)
+	{
+		cond3 = 3;
+	}	
+	elsif( cond1 ==4)
+	{
+		cond3 = 3;
+	}
+	else
+	{
+		cond3=21;
+	}
+	
+	
+	//ArgsList + function invocation
+	testfunction (2,true) ;
+	
+	num xpto = 1 ;
+
+	while ( xpto < 5)
+	{
+		xpto = xpto + 1;	
+	}
+	
+	for (num i = 0 ; i < 5 ; i = i+1)
+	{
+		xpto = xpto + 1;	
+	}
+
+	
+	Sprite sprite2 = create Sprite ("sprite2.sprite");
+	sprite2.move(2,3);
+
+	Window.getWidth();
+
+	num abc = 2;
+	
+	num i=2;
+
+	
+	for (Sprite sprite3 = create Sprite ("sprite2.sprite"); i < 5 ; i = i+1)
+	{
+		xpto = xpto + 1;	
+	}
+
+	while (true)
+	{
+		Sprite sprite4 = create Sprite ("sprite2.sprite");	
+	}
+	
+	Sprite sprite4 = create Sprite ("sprite2.sprite");
+	sprite4.move(3,2);
+
+	boolean a23 = is key->0 pressed ? ;
+	if (is key->up arrow pressed ?) {sprite1.move(1,2);}
+	
+	num abcd = pickRandom ( 2 -> 5);
+	give 0;
+	
+}
+
+
+//ArgsListDef + function def
+function void testfunction ( num v , boolean b)
+{
+	Sprite xxxxx = create Sprite("sprite2.sprite");
+	cond3=3;
+	give;
+}
+
+
